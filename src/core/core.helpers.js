@@ -686,9 +686,10 @@ module.exports = function(Chart) {
 	// -- DOM methods
 	helpers.getRelativePosition = function(evt, chart) {
 		var mouseX, mouseY;
-		var e = evt.originalEvent || evt,
-			canvas = evt.currentTarget || evt.srcElement,
-			boundingRect = canvas.getBoundingClientRect();
+		var e = evt.originalEvent || evt;
+		//canvas = evt.currentTarget || evt.srcElement;
+		var canvas = evt.currentTarget || evt.originalTarget;
+		var boundingRect = canvas.getBoundingClientRect();
 
 		var touches = e.touches;
 		if (touches && touches.length > 0) {
